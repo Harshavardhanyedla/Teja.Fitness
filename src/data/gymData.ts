@@ -22,6 +22,7 @@ export const BRANCHES = [
     mapUrl: "https://maps.google.com/?q=Akkayyapalem+Visakhapatnam",
     phone: PHONE_PRIMARY,
     whatsappMsg: "Hello TEJA FITNESS STUDIO, I want to inquire about Akkayyapalem branch membership details.",
+    image: "/images/branches/branch_akkayyapalem.jpg",
   },
   {
     id: "104-area",
@@ -32,6 +33,7 @@ export const BRANCHES = [
     mapUrl: "https://maps.google.com/?q=104+Area+Visakhapatnam",
     phone: PHONE_PRIMARY,
     whatsappMsg: "Hello TEJA FITNESS STUDIO, I want to inquire about 104 Area branch membership details.",
+    image: "/images/branches/branch_104_area.jpg",
   },
   {
     id: "murali-nagar",
@@ -42,6 +44,7 @@ export const BRANCHES = [
     mapUrl: "https://maps.google.com/?q=Murali+Nagar+Visakhapatnam",
     phone: PHONE_SECONDARY,
     whatsappMsg: "Hello TEJA FITNESS STUDIO, I want to inquire about Murali Nagar branch membership details.",
+    image: "/images/branches/branch_murali_nagar.jpg",
   },
   {
     id: "yendada",
@@ -52,6 +55,7 @@ export const BRANCHES = [
     mapUrl: "https://maps.google.com/?q=Yendada+Visakhapatnam",
     phone: PHONE_SECONDARY,
     whatsappMsg: "Hello TEJA FITNESS STUDIO, I want to inquire about Yendada branch membership details.",
+    image: "/images/branches/branch_yendada.jpg",
   },
 ];
 

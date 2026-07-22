@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BRANCHES, getWhatsAppUrl } from "@/data/gymData";
 import { MapPin, Phone, MessageSquare, ExternalLink, Clock, Sparkles } from "lucide-react";
@@ -44,7 +45,7 @@ export const BranchesSection: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base sm:text-lg text-gray-300 font-light"
           >
-            Strategically located across Visakhapatnam for easy commuting. Visit your nearest Teja Fitness Studio branch today!
+            Visit your nearest Teja Fitness Studio branch in Visakhapatnam. State-of-the-art facilities equipped for your body transformation.
           </motion.p>
         </div>
 
@@ -58,38 +59,51 @@ export const BranchesSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="p-8 rounded-3xl bg-[#141414] border border-white/10 hover:border-[#D4AF37]/60 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] group"
+              className="rounded-3xl bg-[#141414] border border-white/10 hover:border-[#D4AF37]/60 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] group"
             >
               <div>
-                {/* Branch Header Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-extrabold tracking-widest text-black bg-[#D4AF37] px-3 py-1 rounded-full uppercase">
-                    BRANCH #{index + 1}
-                  </span>
-                  <div className="p-2 rounded-lg bg-[#1F1F1F] text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors">
-                    <MapPin className="w-5 h-5" />
+                {/* Branch Building Image Header */}
+                <div className="relative h-56 w-full overflow-hidden bg-black">
+                  <Image
+                    src={branch.image}
+                    alt={branch.name}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-95 group-hover:brightness-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-black/30 to-transparent" />
+
+                  {/* Branch Number Badge */}
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#070707]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[#D4AF37] text-[10px] font-extrabold uppercase tracking-widest">
+                    <span>BRANCH #{index + 1}</span>
+                  </div>
+
+                  <div className="absolute top-4 right-4 p-2 rounded-xl bg-[#070707]/80 backdrop-blur-md border border-white/20 text-[#D4AF37]">
+                    <MapPin className="w-4 h-4" />
                   </div>
                 </div>
 
-                {/* Branch Name */}
-                <h3 className="font-bebas text-3xl text-white tracking-wide uppercase group-hover:text-[#D4AF37] transition-colors">
-                  {branch.name}
-                </h3>
+                {/* Branch Info */}
+                <div className="p-6 pt-4">
+                  {/* Branch Name */}
+                  <h3 className="font-bebas text-3xl text-white tracking-wide uppercase group-hover:text-[#D4AF37] transition-colors">
+                    {branch.name}
+                  </h3>
 
-                {/* Address */}
-                <p className="mt-3 text-xs sm:text-sm text-gray-400 font-light leading-relaxed flex items-start gap-2">
-                  <span>{branch.address}</span>
-                </p>
+                  {/* Address */}
+                  <p className="mt-2 text-xs sm:text-sm text-gray-400 font-light leading-relaxed">
+                    {branch.address}
+                  </p>
 
-                {/* Timings */}
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-gray-300">
-                  <Clock className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>{branch.timing}</span>
+                  {/* Timings */}
+                  <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2 text-xs text-gray-300">
+                    <Clock className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                    <span>{branch.timing}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons: Maps, Call, WhatsApp */}
-              <div className="mt-8 space-y-3">
+              <div className="p-6 pt-0 space-y-3">
                 {/* Google Maps Button */}
                 <a
                   href={branch.mapUrl}
@@ -131,3 +145,4 @@ export const BranchesSection: React.FC = () => {
     </section>
   );
 };
+
