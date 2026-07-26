@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { PHONE_PRIMARY, PHONE_SECONDARY, BRANCHES, getWhatsAppUrl } from "@/data/gymData";
 import { Phone, MessageSquare, MapPin, ExternalLink, Dumbbell } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
@@ -16,10 +17,14 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#F3E5AB] via-[#D4AF37] to-[#997A15] p-0.5 shadow-lg">
-                <div className="w-full h-full bg-[#0B0B0B] rounded-[10px] flex items-center justify-center">
-                  <span className="font-bebas text-xl text-[#D4AF37] tracking-wider">TF</span>
-                </div>
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="TEJA FITNESS STUDIO Logo"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+                />
               </div>
               <div>
                 <h3 className="font-bebas text-3xl tracking-widest text-white leading-none">

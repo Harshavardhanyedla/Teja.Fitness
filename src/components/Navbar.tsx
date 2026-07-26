@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X, ArrowRight, ChevronRight } from "lucide-react";
 import { getWhatsAppUrl } from "@/data/gymData";
 import { motion, AnimatePresence } from "framer-motion";
@@ -39,10 +40,14 @@ export const Navbar: React.FC = () => {
         
         {/* Brand Logo */}
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-[#D4AF37] p-0.5 shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-105 transition-transform duration-300">
-            <div className="w-full h-full bg-[#070707] rounded-[10px] flex items-center justify-center">
-              <span className="font-bebas text-lg text-[#D4AF37] tracking-wider">TF</span>
-            </div>
+          <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+            <Image
+              src="/images/logo.png"
+              alt="TEJA FITNESS STUDIO Logo"
+              width={64}
+              height={64}
+              className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+            />
           </div>
           <div className="flex flex-col text-left">
             <span className="font-bebas text-2xl tracking-widest text-white leading-none group-hover:text-[#D4AF37] transition-colors">
