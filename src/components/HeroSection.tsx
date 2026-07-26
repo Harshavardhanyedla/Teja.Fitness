@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Dumbbell, ChevronDown } from "lucide-react";
 import { getWhatsAppUrl } from "@/data/gymData";
 
 export const HeroSection: React.FC = () => {
@@ -33,25 +33,21 @@ export const HeroSection: React.FC = () => {
           muted
           playsInline
           poster="/images/hero_bg.jpg"
-          className="w-full h-full object-cover filter brightness-[0.7] contrast-110 scale-105 pointer-events-none"
+          className="w-full h-full object-cover filter brightness-[0.75] contrast-110 scale-105 pointer-events-none"
         >
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-the-gym-43093-large.mp4"
+            src="/videos/hero_gym.mp4"
             type="video/mp4"
           />
           <source
-            src="https://cdn.coverr.co/videos/coverr-crossfit-workout-with-ropes-2646/1080p.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://cdn.coverr.co/videos/coverr-a-man-training-with-dumbbells-5452/1080p.mp4"
+            src="https://videos.pexels.com/video-files/855828/855828-sd_640_360_30fps.mp4"
             type="video/mp4"
           />
         </video>
 
         {/* Ambient Dark Gradient & Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-[#070707]/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_#070707_90%)] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/30 to-[#070707]/50" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_25%,_#070707_90%)] opacity-50" />
       </div>
 
       {/* Floating Gold Ambient Lighting */}
@@ -137,7 +133,7 @@ export const HeroSection: React.FC = () => {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-white hover:text-[#D4AF37] font-bold text-xs uppercase tracking-wider transition-colors group"
           >
             <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-black transition-all">
-              <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
+              <Dumbbell className="w-3.5 h-3.5 text-[#D4AF37] group-hover:text-black transition-colors" />
             </div>
             <span>EXPLORE MEMBERSHIPS</span>
           </a>
