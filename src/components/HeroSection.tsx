@@ -10,12 +10,15 @@ export const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    // Force immediate video playback on component mount
     if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
       videoRef.current.muted = true;
-      videoRef.current.play().catch((err) => {
-        console.log("Autoplay prevented or video loading:", err);
-      });
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.log("Autoplay error:", err);
+        });
+      }
     }
   }, []);
 
@@ -30,9 +33,12 @@ export const HeroSection: React.FC = () => {
           muted
           playsInline
           poster="/images/hero_bg.jpg"
-          onCanPlay={(e) => e.currentTarget.play()}
-          className="w-full h-full object-cover filter brightness-[0.55] contrast-125 scale-105 pointer-events-none"
+          className="w-full h-full object-cover filter brightness-[0.7] contrast-110 scale-105 pointer-events-none"
         >
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-the-gym-43093-large.mp4"
+            type="video/mp4"
+          />
           <source
             src="https://cdn.coverr.co/videos/coverr-crossfit-workout-with-ropes-2646/1080p.mp4"
             type="video/mp4"
@@ -41,15 +47,11 @@ export const HeroSection: React.FC = () => {
             src="https://cdn.coverr.co/videos/coverr-a-man-training-with-dumbbells-5452/1080p.mp4"
             type="video/mp4"
           />
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-the-gym-43093-large.mp4"
-            type="video/mp4"
-          />
         </video>
 
         {/* Ambient Dark Gradient & Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/60 to-[#070707]/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#070707_90%)] opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-[#070707]/40 to-[#070707]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_#070707_90%)] opacity-60" />
       </div>
 
       {/* Floating Gold Ambient Lighting */}
